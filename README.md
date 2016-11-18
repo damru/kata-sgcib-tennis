@@ -1,4 +1,4 @@
-# kata-sgcib-tennis
+# Kata Tennis
 
 Dans ce kata, vous vous focaliserez sur le score d'un set de Tennis.
 
