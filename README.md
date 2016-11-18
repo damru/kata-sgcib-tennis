@@ -11,7 +11,7 @@ Dans le jeu du Tennis, les joueurs commencent avec un score de 0. Avec plusieurs
  * Si l'autre joueur marque aussi alors on retourne *__deuce__* à nouveau. 
  * Si un joueur a *__avantage__* et marque après alors ce joueur __gagne le jeu__.
  
-## Prérequis
+## Besoin
 Ecrire un programme qui prend en compte ces éléments pour le tableau des score entre deux joueurs de Tennis.
 * Les joueurs doivent être capable de __marquer des points__.
 * Le set doit être __fini avec un gagnant__.
