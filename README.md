@@ -2,24 +2,20 @@
 
 Dans ce kata, vous vous focaliserez sur le score d'un set de Tennis.
 
-La base
+## La base
 Dans le jeu du Tennis, les joueurs commencent avec un score de 0. Avec plusieurs échanges ils gagnent des points et donc gagnent des séquences (jeux) : 
-<ul>
-<li>0 -> 15 -> 30 -> 40</li>
-<li>Si un joueur a <i><bold>40</bold></i> et marque encore contre son adversaire alors il gagne le jeu tant que l'autre joueur n'a pas lui aussi 40.</li>
-<li>Si les deux joueurs ont <i><bold>40</bold></i> alors il y a <i><bold>deuce</bold></i>.</li>
-</ul>
+* 0 -> 15 -> 30 -> 40
+* Si un joueur a *__40__* et marque encore contre son adversaire alors il gagne le jeu tant que l'autre joueur n'a pas lui aussi 40.
+* Si les deux joueurs ont *__40__* alors il y a *__deuce__*.
  
-Deuce 
-Marquer durant "deuce" donne au joueur avantage . Si l'autre joueur marque aussi alors on retourne "deuce" à nouveau. Si un joueur a avantage et marque après alors ce joueur gagne le jeu.
+## Deuce 
+Marquer durant *__deuce__* donne au joueur *__avantage__* . Si l'autre joueur marque aussi alors on retourne *__deuce__* à nouveau. Si un joueur a *__avantage__* et marque après alors ce joueur __gagne le jeu__.
  
-Prérequis
+## Prérequis
 Ecrire un programme qui prend en compte ces éléments pour le tableau des score entre deux joueurs de Tennis.
-<ul>
-<li>Les joueurs doivent être capable de marquer des points.</li>
-<li>Le set doit être fini avec un gagnant.</li>
-<li>Le cas "deuce" doit être traité.</li>
-<li>Le cas du tie-break en fin de set doit être traité.</li>
-<li>Apres qu'une partie soit gagnée, le joueur gagnant doit être déterminé.</li>
-<li>On doit pouvoir suivre le score de chaque joueurs à tout moment durant la partie.</li>
-</ul>
+* Les joueurs doivent être capable de __marquer des points__.
+* Le set doit être __fini avec un gagnant__.
+* Le cas __*deuce* doit être traité__.
+* Le cas du __*tie-break* en fin de set doit être traité__.
+* Apres qu'une partie soit gagnée, le joueur __gagnant doit être déterminé__.
+* On doit pouvoir __suivre le score de chaque joueurs à tout moment durant la partie__.
