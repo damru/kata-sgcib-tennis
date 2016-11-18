@@ -2,7 +2,7 @@
 
 Dans ce kata, vous vous focaliserez sur le score d'un set de Tennis.
 
-<br><br>La base:
+La base:
 <br>Dans le jeu du Tennis, les joueurs commencent avec un score de 0. Avec plusieurs échanges ils gagnent des points et donc gagnent des séquences (jeux) : <ul><li>0 -> 15 -> 30 -> 40</li></ul>
 <br>Si un joueur a 40 et marque encore contre son adversaire alors il gagne le jeu tant que l'autre joueur n'a pas lui aussi 40 . Si les deux joueurs ont 40 points alors il y a "deuce".
  
