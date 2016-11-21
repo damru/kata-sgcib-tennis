@@ -1,7 +1,7 @@
 package com.damru.kata.sgcib.tennis.models;
 
-import com.damru.kata.sgcib.tennis.enums.Point;
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.Setter;
 
 import java.util.ArrayList;
@@ -11,40 +11,47 @@ import java.util.ArrayList;
  */
 public class Match {
 
-    @Getter @Setter
+    @Getter
+    @Setter
     private ArrayList<Set> partie;
 
-    @Getter @Setter
+    @Getter
+    @Setter
+    @NonNull
     private Joueur joueur1;
 
-    @Getter @Setter
+    @Getter
+    @Setter
+    @NonNull
     private Joueur joueur2;
 
-    @Getter @Setter
+    @Getter
+    @Setter
     private Joueur vainqueur;
 
-    @Getter @Setter
-    int setsGagnants;
+    @Getter
+    @Setter
+    int nbSetsGagnants = 2;
 
     public Match() throws Exception {
-        throw new Exception("Un match a besoin de 2 joueurs.");
+        throw new Exception("Un match se déroule obligatoirement entre 2 joueurs.");
     }
 
     public Match(Joueur j1, Joueur j2) {
-        this.setsGagnants = 2;
+        this.partie = new ArrayList<Set>();
         this.joueur1 = j1;
         this.joueur2 = j2;
-        this.partie = new ArrayList<Set>();
-        Set set = new Set();
+        Set set = new Set(j1,j2);
         set.setEnCours(true);
-        partie.add(set);
-        set.getJeux().get(0).getScores().put(this.getJoueur1(), Point.NUL);
-        set.getJeux().get(0).getScores().put(this.getJoueur2(), Point.NUL);
-        set.getJeux().get(0).setEnCours(true);
+        this.addSet(set);
     }
 
-    public Match(Joueur j1, Joueur j2, int setsGagnants) {
+    public Match(Joueur j1, Joueur j2, int nbSetsGagnants) {
         this(j1, j2);
-        this.setsGagnants = setsGagnants;
+        this.nbSetsGagnants = nbSetsGagnants;
+    }
+
+    public void addSet(Set set) {
+        this.partie.add(set);
     }
 }

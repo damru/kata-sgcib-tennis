@@ -1,12 +1,11 @@
 package com.damru.kata.sgcib.tennis.models;
 
+import com.damru.kata.sgcib.tennis.enums.Point;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by damien on 18/11/2016.
@@ -26,9 +25,17 @@ public class Set {
     private boolean enCours;
 
     public Set() {
-        jeux = new ArrayList<Jeu>();
-        Jeu jeu = new Jeu();
+        this.jeux = new ArrayList<Jeu>();
+    }
+
+    public Set(Joueur j1, Joueur j2) {
+        this();
+        Jeu jeu = new Jeu(j1,j2);
         jeu.setEnCours(true);
-        jeux.add(jeu);
+        this.addJeu(jeu);
+    }
+
+    public void addJeu(Jeu jeu) {
+        this.jeux.add(jeu);
     }
 }
