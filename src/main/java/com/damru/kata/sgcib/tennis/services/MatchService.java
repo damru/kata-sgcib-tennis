@@ -3,7 +3,6 @@ package com.damru.kata.sgcib.tennis.services;
 import com.damru.kata.sgcib.tennis.enums.Point;
 import com.damru.kata.sgcib.tennis.models.*;
 import org.springframework.stereotype.Service;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import static com.damru.kata.sgcib.tennis.enums.Point.*;
 
@@ -234,7 +233,7 @@ public class MatchService {
     }
 
     /**
-     * Lorsqu'un joueur gagne le match, la partie s'arrête
+     * Lorsqu'un joueur gagne le match, la partie s'arrête.
      *
      * @param match
      */

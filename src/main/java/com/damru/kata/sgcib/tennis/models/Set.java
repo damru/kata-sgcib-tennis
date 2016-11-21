@@ -1,6 +1,5 @@
 package com.damru.kata.sgcib.tennis.models;
 
-import com.damru.kata.sgcib.tennis.enums.Point;
 import lombok.Getter;
 import lombok.Setter;
 

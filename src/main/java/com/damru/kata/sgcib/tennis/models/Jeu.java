@@ -6,7 +6,6 @@ import lombok.Setter;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 /**
  * Created by damien on 18/11/2016.
