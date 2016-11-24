@@ -4,27 +4,37 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 
 /**
  * Created by damien on 18/11/2016.
  */
+@Entity
 public class Match {
 
+    @Id @GeneratedValue
+    @Getter @Setter
+    private Long id;
+
+    @OneToMany
     @Getter
     @Setter
     private ArrayList<Set> partie;
 
+    @OneToOne
     @Getter
     @Setter
     @NonNull
     private Joueur joueur1;
 
+    @OneToOne
     @Getter
     @Setter
     @NonNull
     private Joueur joueur2;
 
+    @OneToOne
     @Getter
     @Setter
     private Joueur vainqueur;

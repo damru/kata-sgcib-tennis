@@ -5,16 +5,25 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
  * Created by damien on 18/11/2016.
  */
 @Data
+@Entity
 public class Joueur {
 
-    @Getter @Setter @NonNull
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    @NonNull
     private String nom;
 
-    @Getter @Setter @NonNull
+    @NonNull
     private String prenom;
 
 }

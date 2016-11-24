@@ -1,26 +1,30 @@
 package com.damru.kata.sgcib.tennis.models;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by damien on 18/11/2016.
  */
+@Data
+@Entity
 public class Set {
 
-    @Getter
-    @Setter
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    @OneToMany
     private List<Jeu> jeux;
 
-    @Getter
-    @Setter
+    @OneToOne
     private Joueur vainqueur;
 
-    @Getter
-    @Setter
     private boolean enCours;
 
     public Set() {
