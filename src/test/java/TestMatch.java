@@ -1,9 +1,10 @@
-import com.damru.kata.sgcib.tennis.enums.Point;
-import com.damru.kata.sgcib.tennis.models.Joueur;
-import com.damru.kata.sgcib.tennis.models.Match;
-import com.damru.kata.sgcib.tennis.models.Set;
-import com.damru.kata.sgcib.tennis.models.TieBreak;
-import com.damru.kata.sgcib.tennis.services.MatchService;
+import com.damienrubio.kata.tennis.TennisApplication;
+import com.damienrubio.kata.tennis.enums.Point;
+import com.damienrubio.kata.tennis.models.Joueur;
+import com.damienrubio.kata.tennis.models.Match;
+import com.damienrubio.kata.tennis.models.Set;
+import com.damienrubio.kata.tennis.models.TieBreak;
+import com.damienrubio.kata.tennis.services.MatchService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,8 +19,7 @@ import static junit.framework.TestCase.assertTrue;
 /**
  * Created by damien on 17/11/2016.
  */
-
-@ContextConfiguration(locations = {"file:src/main/resources/applicationContext.xml"})
+@ContextConfiguration(classes = TennisApplication.class)
 @RunWith(SpringJUnit4ClassRunner.class)
 public class TestMatch {
 

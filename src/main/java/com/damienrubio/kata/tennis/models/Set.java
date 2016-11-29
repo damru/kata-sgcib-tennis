@@ -1,12 +1,11 @@
-package com.damru.kata.sgcib.tennis.models;
+package com.damienrubio.kata.tennis.models;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created by damien on 18/11/2016.
@@ -19,6 +18,9 @@ public class Set {
     @GeneratedValue
     private Long id;
 
+    @Transient
+    private static AtomicInteger nextId = new AtomicInteger();
+
     @OneToMany
     private List<Jeu> jeux;
 
@@ -28,6 +30,7 @@ public class Set {
     private boolean enCours;
 
     public Set() {
+        this.id = Long.valueOf(nextId.incrementAndGet());
         this.jeux = new ArrayList<Jeu>();
     }
 

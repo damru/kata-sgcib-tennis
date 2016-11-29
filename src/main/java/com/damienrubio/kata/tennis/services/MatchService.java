@@ -1,10 +1,8 @@
-package com.damru.kata.sgcib.tennis.services;
+package com.damienrubio.kata.tennis.services;
 
-import com.damru.kata.sgcib.tennis.enums.Point;
-import com.damru.kata.sgcib.tennis.models.*;
+import com.damienrubio.kata.tennis.enums.Point;
+import com.damienrubio.kata.tennis.models.*;
 import org.springframework.stereotype.Service;
-
-import static com.damru.kata.sgcib.tennis.enums.Point.*;
 
 /**
  * Created by damien on 17/11/2016.
@@ -118,17 +116,17 @@ public class MatchService {
 
         switch (scoreJoueur) {
             case NUL:
-                scoreJoueur = QUINZE;
+                scoreJoueur = Point.QUINZE;
                 break;
             case QUINZE:
-                scoreJoueur = TRENTE;
+                scoreJoueur = Point.TRENTE;
                 break;
             case TRENTE:
                 if (Point.QUARANTE.equals(scoreAdversaire)) {
-                    scoreJoueur = DEUCE;
-                    scoreAdversaire = DEUCE;
+                    scoreJoueur = Point.DEUCE;
+                    scoreAdversaire = Point.DEUCE;
                 } else {
-                    scoreJoueur = QUARANTE;
+                    scoreJoueur = Point.QUARANTE;
                 }
                 break;
             case QUARANTE:
@@ -136,8 +134,8 @@ public class MatchService {
                 gagnerJeu(match, joueur);
                 break;
             case DEUCE:
-                scoreJoueur = AVANTAGE;
-                scoreAdversaire = QUARANTE;
+                scoreJoueur = Point.AVANTAGE;
+                scoreAdversaire = Point.QUARANTE;
                 break;
         }
 

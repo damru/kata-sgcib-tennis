@@ -1,4 +1,4 @@
-package com.damru.kata.sgcib.tennis.models;
+package com.damienrubio.kata.tennis.models;
 
 import lombok.Data;
 

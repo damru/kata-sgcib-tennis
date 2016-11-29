@@ -1,4 +1,4 @@
-package com.damru.kata.sgcib.tennis.enums;
+package com.damienrubio.kata.tennis.enums;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

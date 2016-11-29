@@ -1,13 +1,12 @@
-package com.damru.kata.sgcib.tennis.models;
+package com.damienrubio.kata.tennis.models;
 
-import com.damru.kata.sgcib.tennis.enums.Point;
+import com.damienrubio.kata.tennis.enums.Point;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created by damien on 18/11/2016.
@@ -19,6 +18,9 @@ public class Jeu {
     @Id
     private Long id;
 
+    @Transient
+    private static AtomicInteger nextId = new AtomicInteger();
+
     @OneToMany
     private Map<Joueur, Point> scores;
 
@@ -28,6 +30,7 @@ public class Jeu {
     private Joueur vainqueur;
 
     public Jeu() {
+        this.id = Long.valueOf(nextId.incrementAndGet()) ;
         this.scores = new HashMap<Joueur,Point>();
     }
 
