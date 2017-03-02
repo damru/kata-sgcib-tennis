@@ -5,6 +5,9 @@ import com.damienrubio.kata.tennis.services.MatchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+
 /**
  * Created by damien on 21/11/2016.
  */
@@ -15,14 +18,16 @@ public class JoueurController {
     @Autowired
     private MatchService matchService;
 
-    @RequestMapping(value = "/creer", method = RequestMethod.GET)
+    @Path(value = "/creer")
+    @POST
     public Joueur creer(
             @RequestParam(value="nom") String nom
             , @RequestParam String prenom) {
         return new Joueur(nom,prenom);
     }
 
-    @RequestMapping(value = "/{joueurId}", method = RequestMethod.POST)
+    @Path(value = "/{joueurId}")
+    @POST
     public Joueur afficher(@PathVariable String joueurId
             , @RequestBody Joueur joueur) {
         return joueur;
