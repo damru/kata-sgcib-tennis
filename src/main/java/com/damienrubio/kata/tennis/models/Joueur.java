@@ -1,6 +1,7 @@
 package com.damienrubio.kata.tennis.models;
 
-import lombok.*;
+import lombok.Data;
+import lombok.NonNull;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,11 +31,11 @@ public class Joueur {
     private String prenom;
 
     public Joueur() {
-        this.id = Long.valueOf(nextId.incrementAndGet()) ;
+        this.id = Long.valueOf(nextId.incrementAndGet());
     }
 
     public Joueur(String nom, String prenom) {
-        this() ;
+        this();
         this.nom = nom;
         this.prenom = prenom;
     }

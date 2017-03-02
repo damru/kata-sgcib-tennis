@@ -3,7 +3,12 @@ package com.damienrubio.kata.tennis.models;
 import lombok.Data;
 import lombok.NonNull;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -14,7 +19,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Entity
 public class Match {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private Long id;
 
     @Transient
@@ -37,7 +43,7 @@ public class Match {
     int nbSetsGagnants = 2;
 
     public Match() {
-        this.id = Long.valueOf(nextId.incrementAndGet()) ;
+        this.id = Long.valueOf(nextId.incrementAndGet());
     }
 
     public Match(Joueur j1, Joueur j2) {
@@ -45,7 +51,7 @@ public class Match {
         this.partie = new ArrayList<Set>();
         this.joueur1 = j1;
         this.joueur2 = j2;
-        Set set = new Set(j1,j2);
+        Set set = new Set(j1, j2);
         set.setEnCours(true);
         this.addSet(set);
     }

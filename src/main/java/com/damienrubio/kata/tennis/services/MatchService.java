@@ -1,7 +1,11 @@
 package com.damienrubio.kata.tennis.services;
 
 import com.damienrubio.kata.tennis.enums.Point;
-import com.damienrubio.kata.tennis.models.*;
+import com.damienrubio.kata.tennis.models.Jeu;
+import com.damienrubio.kata.tennis.models.Joueur;
+import com.damienrubio.kata.tennis.models.Match;
+import com.damienrubio.kata.tennis.models.Set;
+import com.damienrubio.kata.tennis.models.TieBreak;
 import org.springframework.stereotype.Service;
 
 /**
@@ -159,7 +163,7 @@ public class MatchService {
         Integer scoreAdversaire = (Integer) tieBreak.getScores().get(adversaire);
 
         //Le joueur marque
-        tieBreak.getScores().put(joueur, scoreJoueur+=1);
+        tieBreak.getScores().put(joueur, scoreJoueur += 1);
         // si le joueur a au moins 7 et 2 points de plus au moins, il gagne le tie break
         if (scoreJoueur >= 7
                 && Math.abs(scoreJoueur - scoreAdversaire) >= 2) {

@@ -11,12 +11,12 @@ import java.util.Map;
  */
 @Data
 @Entity
-public class TieBreak extends Jeu{
+public class TieBreak extends Jeu {
 
     private Map<Joueur, Integer> scores;
 
     public TieBreak() {
-        this.scores = new HashMap<Joueur,Integer>();
+        this.scores = new HashMap<Joueur, Integer>();
     }
 
     public TieBreak(Joueur joueur1, Joueur joueur2) {

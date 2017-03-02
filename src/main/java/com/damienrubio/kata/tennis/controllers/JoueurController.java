@@ -3,33 +3,36 @@ package com.damienrubio.kata.tennis.controllers;
 import com.damienrubio.kata.tennis.models.Joueur;
 import com.damienrubio.kata.tennis.services.MatchService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
 
 /**
  * Created by damien on 21/11/2016.
  */
 @RestController
-@RequestMapping("/joueur")
+@Path("/joueur")
 public class JoueurController {
 
     @Autowired
     private MatchService matchService;
 
-    @Path(value = "/creer")
+    @Path("/creer")
     @POST
-    public Joueur creer(
-            @RequestParam(value="nom") String nom
-            , @RequestParam String prenom) {
-        return new Joueur(nom,prenom);
+    @Produces(MediaType.APPLICATION_JSON)
+    public Joueur creer(@QueryParam("nom") String nom, @QueryParam("prenom") String prenom) {
+        return new Joueur(nom, prenom);
     }
 
-    @Path(value = "/{joueurId}")
+    @Path("/{joueurId}")
     @POST
-    public Joueur afficher(@PathVariable String joueurId
-            , @RequestBody Joueur joueur) {
+    @Produces(MediaType.APPLICATION_JSON)
+    public Joueur afficher(@RequestBody Joueur joueur) {
         return joueur;
     }
 

@@ -3,7 +3,11 @@ package com.damienrubio.kata.tennis.models;
 import com.damienrubio.kata.tennis.enums.Point;
 import lombok.Data;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -30,8 +34,8 @@ public class Jeu {
     private Joueur vainqueur;
 
     public Jeu() {
-        this.id = Long.valueOf(nextId.incrementAndGet()) ;
-        this.scores = new HashMap<Joueur,Point>();
+        this.id = Long.valueOf(nextId.incrementAndGet());
+        this.scores = new HashMap<Joueur, Point>();
     }
 
     public Jeu(Joueur joueur1, Joueur joueur2) {
