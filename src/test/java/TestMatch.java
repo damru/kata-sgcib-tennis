@@ -1,10 +1,10 @@
 import com.damienrubio.kata.tennis.TennisApplication;
 import com.damienrubio.kata.tennis.enums.Point;
-import com.damienrubio.kata.tennis.models.Joueur;
-import com.damienrubio.kata.tennis.models.Match;
-import com.damienrubio.kata.tennis.models.Set;
-import com.damienrubio.kata.tennis.models.TieBreak;
-import com.damienrubio.kata.tennis.services.MatchService;
+import com.damienrubio.kata.tennis.model.Joueur;
+import com.damienrubio.kata.tennis.model.Match;
+import com.damienrubio.kata.tennis.model.Set;
+import com.damienrubio.kata.tennis.model.TieBreak;
+import com.damienrubio.kata.tennis.service.MatchService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

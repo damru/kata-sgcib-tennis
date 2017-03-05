@@ -1,4 +1,4 @@
-package com.damienrubio.kata.tennis.models;
+package com.damienrubio.kata.tennis.model;
 
 import lombok.Data;
 import lombok.NonNull;

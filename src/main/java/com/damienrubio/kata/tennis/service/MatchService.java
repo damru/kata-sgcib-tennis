@@ -1,11 +1,11 @@
-package com.damienrubio.kata.tennis.services;
+package com.damienrubio.kata.tennis.service;
 
 import com.damienrubio.kata.tennis.enums.Point;
-import com.damienrubio.kata.tennis.models.Jeu;
-import com.damienrubio.kata.tennis.models.Joueur;
-import com.damienrubio.kata.tennis.models.Match;
-import com.damienrubio.kata.tennis.models.Set;
-import com.damienrubio.kata.tennis.models.TieBreak;
+import com.damienrubio.kata.tennis.model.Jeu;
+import com.damienrubio.kata.tennis.model.Joueur;
+import com.damienrubio.kata.tennis.model.Match;
+import com.damienrubio.kata.tennis.model.Set;
+import com.damienrubio.kata.tennis.model.TieBreak;
 import org.springframework.stereotype.Service;
 
 /**
