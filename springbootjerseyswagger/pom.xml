@@ -12,8 +12,10 @@
     <artifactId>spring-boot-jersey-swagger</artifactId>
 
     <properties>
-        <swagger.jersey.version>1.5.12</swagger.jersey.version>
+        <swagger.version>1.5.12</swagger.version>
+        <swagger.springfox.version>2.6.1</swagger.springfox.version>
     </properties>
+
 
     <dependencies>
         <!-- Restful endpoints with jersey -->
@@ -26,7 +28,7 @@
         <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-jersey2-jaxrs</artifactId>
-            <version>${swagger.jersey.version}</version>
+            <version>${swagger.version}</version>
         </dependency>
 
         <!-- Data -->

@@ -10,37 +10,34 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DefaultValue;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import java.util.Map;
 
 /**
  * Created by damien on 21/11/2016.
  */
-@Component
-@Api(value = "/match",
+@Api(value = "/api/match",
      description = "Gestion des matchs.")
-@Path("/match")
+@RestController
+@RequestMapping("/api/match")
 @Slf4j
 public class MatchResource {
 
     @Autowired
     private MatchService matchService;
 
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public Response home() {
-        return Response.ok("Match API").build();
+    @ApiOperation(value = "Page d'accueil de l'API Match")
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity home() {
+        return ResponseEntity.ok("Match API");
     }
 
     @ApiOperation(value = "Créer un nouveau match",
@@ -48,17 +45,17 @@ public class MatchResource {
                   response = Match.class)
     @ApiResponse(code = 201,
                  message = "Le match est créé")
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path(value = "/creer")
-    public Response creer(@ApiParam("Les joueurs du match à créer") Map<String,Joueur> joueurs,
-                          @ApiParam("Nombre de sets nécessaires pour gagner le match") @QueryParam("nbSetsGagants") @DefaultValue("2")
-                              int nbSetsGagants) {
+    @PostMapping(value = "/creer",
+                 consumes = MediaType.APPLICATION_JSON_VALUE,
+                 produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity creer(@ApiParam("Les joueurs du match à créer") Map<String, Joueur> joueurs,
+                                @ApiParam("Nombre de sets nécessaires pour gagner le match") @RequestParam(value = "nbSetsGagants",
+                                                                                                           defaultValue = "2")
+                                    int nbSetsGagants) {
         if (joueurs != null && joueurs.containsKey("joueur1") && joueurs.containsKey("joueur2")) {
-            return Response.ok(new Match(joueurs.get("joueur1"), joueurs.get("joueur2"))).build();
+            return ResponseEntity.ok(new Match(joueurs.get("joueur1"), joueurs.get("joueur2")));
         }
-        return Response.status(Response.Status.BAD_REQUEST).entity(joueurs).build();
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(joueurs);
     }
 
     // FIXME @damien: remove match param and replace with DAO call
@@ -67,12 +64,12 @@ public class MatchResource {
                   response = Match.class)
     @ApiResponse(code = 200,
                  message = "Le match est créé")
-    @POST
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path(value = "/{matchId}")
-    public Response afficher(@ApiParam("Id du match à afficher") @PathParam("matchId") Long matchId,
-                             @ApiParam("Match à afficher") Match match) {
-        return Response.ok(match).build();
+    @PostMapping(value = "/{matchId}",
+                 produces = MediaType.APPLICATION_JSON_VALUE,
+                 consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity afficher(@ApiParam("Id du match à afficher") @RequestParam("matchId") Long matchId,
+                                   @ApiParam("Match à afficher") Match match) {
+        return ResponseEntity.ok(match);
     }
 
     @ApiOperation(value = "Un joueur marque un point dans le match",
@@ -82,11 +79,11 @@ public class MatchResource {
                                         message = "Le joueur a marqué un point"),
                            @ApiResponse(code = 400,
                                         message = "Erreur dans les données d'entrée")})
-    @POST
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path(value = "/marquer/{joueurId}")
-    public Response marquer(@ApiParam("Match dans lequel un point est marqué") Match match,
-                            @ApiParam("Joueur marquant le point") @PathParam("joueurId") Long joueurId) {
+    @PostMapping(value = "/marquer/{joueurId}",
+                 produces = MediaType.APPLICATION_JSON_VALUE,
+                 consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity marquer(@ApiParam("Match dans lequel un point est marqué") Match match,
+                                  @ApiParam("Joueur marquant le point") @RequestParam("joueurId") Long joueurId) {
         Joueur joueurQuiMarque = null;
         switch (joueurId.intValue()) {
             case 1:
@@ -97,9 +94,9 @@ public class MatchResource {
         }
         if (joueurQuiMarque != null) {
             matchService.marquerPoint(match, joueurQuiMarque);
-            return Response.ok(match).build();
+            return ResponseEntity.ok(match);
         }
-        return Response.status(Response.Status.BAD_REQUEST).entity(joueurId).build();
+        return ResponseEntity.badRequest().body(joueurId);
     }
 
 }

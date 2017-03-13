@@ -1,20 +1,26 @@
 package com.damienrubio.kata.tennis.resource;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Created by damien on 04/03/2017.
  */
-@Produces(MediaType.TEXT_PLAIN)
-@Path("/")
+@Api(value = "/api",
+     description = "Kata Tennis API")
+@RestController
+@RequestMapping("/api")
 public class DefaultResource {
 
-    @GET
-    public Response home() {
-        return Response.ok("Kata Tennis API").build();
+    @ApiOperation(value = "Page d'accueil de l'API Kata Tennis")
+    @GetMapping
+    @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity home() {
+        return ResponseEntity.ok("Welcome to the Kata Tennis API");
     }
 }

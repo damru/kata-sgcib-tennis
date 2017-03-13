@@ -37,6 +37,7 @@ public class MatchResource {
     @Autowired
     private MatchService matchService;
 
+    @ApiOperation(value = "Page d'accueil de l'API Match")
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public Response home() {

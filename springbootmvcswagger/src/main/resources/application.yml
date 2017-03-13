@@ -6,5 +6,3 @@ server:
 spring:
     application:
         name: Kata Tennis API with Spring MVC
-    jersey:
-        application-path: /api # url for API with Jersey
