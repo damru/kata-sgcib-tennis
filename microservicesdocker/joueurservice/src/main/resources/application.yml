@@ -5,9 +5,4 @@ server:
     #servlet-path: /doc # url for spring monitiring & swagger
 spring:
     application:
-        name: Kata Tennis API
-    jersey:
-        application-path: /api # url for API with Jersey
-
-# API documentation
-springfox.documentation.swagger.v2.path: /api-docs
+        name: Kata Tennis API with Spring MVC
