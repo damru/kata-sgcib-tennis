@@ -19,3 +19,8 @@ Ecrire un programme qui prend en compte ces éléments pour le tableau des score
 * Le cas du __*tie-break* en fin de set doit être traité__.
 * Apres qu'une partie soit gagnée, le joueur __gagnant doit être déterminé__.
 * On doit pouvoir __suivre le score de chaque joueurs à tout moment durant la partie__.
+
+## Common Technical Stack
+* Spring boot (standalone application)
+    * actuator (monitoring)
+* Lombok (avoid java boilerplate)
