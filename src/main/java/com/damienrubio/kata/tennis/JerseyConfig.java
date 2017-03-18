@@ -45,7 +45,7 @@ public class JerseyConfig extends ResourceConfig {
         config.setSchemes(new String[]{"http",
                                        "https"});
         config.setBasePath(this.apiPath);
-        config.setResourcePackage("com.damienrubio.kata.tennis.resource");
+        config.setResourcePackage(this.getClass().getPackage().getName()+".resource");
         config.setPrettyPrint(true);
         config.setScan(true);
     }

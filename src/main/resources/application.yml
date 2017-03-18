@@ -8,6 +8,3 @@ spring:
         name: Kata Tennis API
     jersey:
         application-path: /api # url for API with Jersey
-
-# API documentation
-springfox.documentation.swagger.v2.path: /api-docs
